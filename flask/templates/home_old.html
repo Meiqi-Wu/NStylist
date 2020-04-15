@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type=text/javascript>
+                $(function() {
+                    $("#test").click(function (event) {
+                        $.getJSON('/my-link', { },
+                            function(data) { console.log(data);})
+                            .fail(function (jqxhr, status, error) { 
+                                console.log('error', status, error) }
+                                );
+                            return false; }); }); 
+        </script>
+    </head>
+<body>
+<h1>NStylist</h1>
+<p>This is where our html code would go...</p>
+<a href=# id=test><button class='btn btn-default'>Test</button></a>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- Page section -->
+<div class="page-section contact-page style-gallery">
+	<div class="contact-warp">
+		<div class="row">
+			<div class="col-12">
+				<div class="contact-text">
+					<span>AI Project</span>
+					<h2>Video Neural Style Transfer</h2>
+					<div class="wrapper" style="display:none">
+						<div class="meter">
+							<span id="bar"></span>
+							<p  id="pbar"></p>
+						</div>
+					</div>
+					<div class="video" style="display:none; text-align:center">
+						<div>
+						<video width="400" height="300" controls>
+							<source src="/static/cat3.mov" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+						</div>
+						<div>Download: <a href="">Link</a></div>
+						<button class="site-btn" onclick="resetPage()">Try Another</button>
+					</div>
+					<div class="form">
+					<form id="styleform"  class="contact-form" enctype="multipart/form-data">
+						<div class="row">
+							<div class="col-xl-6 p-1">
+								<input type="file" id="video" placeholder="Video" accept="video/*" required>
+							</div>
+							<div class="col-xl-6 p-1">
+								Percent: <div id="percentval" style="display:inline">100%</div>
+								<div>
+									<input type="range" id="percent" min="0" max="100" value=100/>
+								</div>
+							</div>
+						</div>
+						<div class="gallery-single-warp">
+								<div class="row">
+									<div class="col-8 p-0" style="text-align: center;">
+										<div class="style-single">
+											{{style}}
+										</div>
+									</div>
+									<div class="col-4 p-0">
+										<div class="style-gallery">
+											{{content}}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-single-text">
+								<span>Style</span>
+								<h2 id='style-title'>{{title}}</h2>
+							</div>
+						<button type="submit" class="site-btn">Apply Style</button>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Page section end-->
