@@ -12,6 +12,8 @@ from StyleNet import StyleNet
 from dataloader.processing import Processing
 import PIL
 
+# test how long it takes for forward path.
+
 nsub_frames = 2
 
 model = StyleNet(False)

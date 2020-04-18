@@ -1,2 +1,4 @@
-# nstylist
+# NStylist
+
 Video Neural Style Transfer
+

@@ -18,6 +18,7 @@ sys.path.append("..")
 import StyleNet as s
 import transformer as t
 
+# combine the styled frames into videos
 
 pathIn = 'upload_dir/'
 pathOut = 'style_video.mp4'

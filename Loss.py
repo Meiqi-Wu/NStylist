@@ -143,32 +143,32 @@ def applyflow(original, flow):
 
 
 def temporal_loss(frame_prev, frame, fwd_flow, bck_flow):
-    # dims = frame.size()
-    # if len(dims) == 4:
-    #     _, C, H, W = dims
-    #     frame_prev = frame_prev[0]
-    #     frame = frame[0]
-    # else:
-    #     C, H, W = dims
+    dims = frame.size()
+    if len(dims) == 4:
+        _, C, H, W = dims
+        frame_prev = frame_prev[0]
+        frame = frame[0]
+    else:
+        C, H, W = dims
     
-    # warped_flow = applyflow(fwd_flow, bck_flow)
+    warped_flow = applyflow(fwd_flow, bck_flow)
     
-    # def mag(tensor):
-    #     return torch.pow(torch.norm(tensor, dim=-1), 2)
+    def mag(tensor):
+        return torch.pow(torch.norm(tensor, dim=-1), 2)
     
-    # disocc = mag(warped_flow+bck_flow) > (0.01*(mag(warped_flow) + mag(bck_flow))+0.5)
+    disocc = mag(warped_flow+bck_flow) > (0.01*(mag(warped_flow) + mag(bck_flow))+0.5)
     
-    # fwd_flow_grad = torch.from_numpy(np.gradient(fwd_flow, axis=-1))
-    # motionbou = (mag(fwd_flow_grad[0]) + mag(fwd_flow_grad[1])) > (0.01*mag(bck_flow) + 0.002)
+    fwd_flow_grad = torch.from_numpy(np.gradient(fwd_flow, axis=-1))
+    motionbou = (mag(fwd_flow_grad[0]) + mag(fwd_flow_grad[1])) > (0.01*mag(bck_flow) + 0.002)
     
-    # c = torch.ones((H,W))
-    # c[disocc] = 0
-    # c[motionbou] = 0
-    # predict = applyflow(frame_prev*255, fwd_flow)/255.0
+    c = torch.ones((H,W))
+    c[disocc] = 0
+    c[motionbou] = 0
+    predict = applyflow(frame_prev*255, fwd_flow)/255.0
     
-    # loss = torch.sum(C*torch.pow((frame-predict), 2))                                             
-    # loss = loss/float(C*H*W)
+    loss = torch.sum(C*torch.pow((frame-predict), 2))                                             
+    loss = loss/float(C*H*W)
     
-    # return loss
-    return 0
+    return loss
+    
 
